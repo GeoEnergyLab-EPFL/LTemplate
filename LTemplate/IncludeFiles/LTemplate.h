@@ -273,6 +273,7 @@ namespace detail { // private
     template<typename T> inline mint libraryType() {
         static_assert(std::is_same<T, T&>::value,
             "Only mint, double and mma::complex_t are allowed in mma::TensorRef<...> and mma::SparseArrayRef<...>.");
+    return MType_Integer; 
     }
 
     template<> inline mint libraryType<mint>()      { return MType_Integer; }
@@ -1041,6 +1042,7 @@ namespace detail { // private
     template<typename T> inline rawarray_t libraryRawType() {
         static_assert(std::is_same<T, T&>::value,
             "Only int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, int64_t, uint64_t, float, double, complex_float_t, complex_double_t are allowed in mma::RawArrayRef<...>.");
+        return MRawArray_Type_Bit8; 
     }
 
     template<> inline rawarray_t libraryRawType<int8_t>()   { return MRawArray_Type_Bit8;   }
@@ -1307,6 +1309,7 @@ namespace detail { // private
     template<typename T> inline imagedata_t libraryImageType() {
         static_assert(std::is_same<T, T&>::value,
             "Only im_bit_t, im_byte_t, im_bit16_t, im_real32_t, im_real_t are allowed in mma::ImageRef<...>.");
+        return MImage_Type_Bit;
     }
 
     template<> inline imagedata_t libraryImageType<im_bit_t>()    { return MImage_Type_Bit;   }
