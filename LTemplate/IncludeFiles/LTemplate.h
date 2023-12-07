@@ -1594,6 +1594,7 @@ namespace detail { // private
     template<typename T> inline imagedata_t libraryImageType() {
         static_assert(std::is_same<T, T&>::value,
             "Only im_bit_t, im_byte_t, im_bit16_t, im_real32_t, im_real_t are allowed in mma::ImageRef<...>.");
+        return MImage_Type_Bit; 
     }
 
     template<> inline imagedata_t libraryImageType<im_bit_t>()    { return MImage_Type_Bit;   }
